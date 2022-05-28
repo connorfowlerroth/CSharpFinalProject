@@ -13,7 +13,30 @@ namespace ChallengeOne.ConsoleApp
         {
             Console.WriteLine("1. Create New Menu Item.\n" +
                                 "2. Delete Menu Item.\n" +
-                                    "3. List all Menu Items");
+                                "3. List all Menu Items.\n" +
+                                "4. Exit.\n");
+        }
+
+        public string GetUserInput()
+        {
+            return Console.ReadLine();
+
+        }
+        public void EnterNewMealNumber()
+        {
+            Console.Write("Enter Meal Number: ");
+        }
+
+
+        
+        public void EnterNewMealName()
+        {
+            Console.Write("Enter Meal Name: ");
+        }
+        public void EnterNewMealDescription()
+        {
+            Console.Write("Enter a Description: ");
+            
         }
     }
 }
