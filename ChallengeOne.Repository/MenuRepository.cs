@@ -28,13 +28,17 @@ namespace ChallengeOne.Repository
             return _menuDB;
         }
         
-        // public Menu GetMenuItemByMealName(string mealName)
-        // {
-        //     foreach (Menu menu in _menuDB)
-        //     {
-
-        //     }
-        // }
+        public Menu GetMenuItemByMealName(string mealName)
+        {
+            foreach (Menu menu in _menuDB)
+            {
+                if(mealName.ToUpper() == menu.MealName.ToUpper())
+                {
+                    return menu;
+                }
+            }
+            return null;
+        }
 
 
 

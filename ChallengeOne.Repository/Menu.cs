@@ -10,18 +10,18 @@ namespace ChallengeOne.Repository
         // PROPERTIES 
         public int MealNumber { get; set; }
 
-        public MealType MealType { get; set; }
+        public MealType? MealType { get; set; }
 
         public string MealName { get; set; }
 
-    public string MealDescription { get; set; }
+        public string MealDescription { get; set; }
 
         public string IngredientList { get; set; }
 
         public double MealPrice { get; set; }
 
         // FULL CONSTRUCTOR 
-        public Menu(int mealNumber, MealType mealType, string mealName, string mealDescription, string ingredientList, double mealPrice)
+        public Menu(int mealNumber, MealType? mealType, string mealName, string mealDescription, string ingredientList, double mealPrice)
         {
 
             MealNumber = mealNumber;

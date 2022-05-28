@@ -21,25 +21,25 @@ namespace ChallengeOne.ConsoleApp
                 _console.PrintMainMenu();
                 string userInput = _console.GetUserInput();
 
-                // UserInputPortal(userInput);
+                UserInputPortal(userInput); 
             }
         }
 
-        private void UserInput(string inputFromUser)
+        private void UserInputPortal(string inputFromUser)
         {
             switch (inputFromUser)
             {
                 case "1":
-                    //CreateNewMenuItem();
+                    CreateNewMenuItem();
                     break;
                 case "2":
                     //DeleteMenuItem();
                     break;
                 case "3":
-                    //ListAllMenuItems();
+                    ListAllMenuItems();
                     break;
                 case "4":
-                    //Exit();
+                    ExitApp();
                     break;
                 default:
                     //InvalidInputReturnToMainMenu();
@@ -49,22 +49,65 @@ namespace ChallengeOne.ConsoleApp
 
         private void CreateNewMenuItem()
         {
+            // Console.Clear();
             _console.EnterNewMealNumber();
-            int newMenuNumber = _console.GetUserInput();
+            int newMenuNumber = _console.GetUserInputInt();
 
-            _console.EnterMealType();
-            bool
+            _console.NewMealTypeSelection();
+            string mealTypeSelection = _console.GetUserInput();
+
+            MealType? newMealType = MealTypeSelection(mealTypeSelection);
 
             _console.EnterNewMealName();
             string newMealName = _console.GetUserInput();
 
             _console.EnterNewMealDescription();
             string newMealDescription = _console.GetUserInput();
-            _console.
 
+            _console.EnterNewIngredientList();
+            string newIngredientList = _console.GetUserInput();
 
+            _console.EnterNewPrice();
+            double newPrice = _console.GetUserInputDouble();
 
+            // Constructor
+            Menu newMenuItem = new Menu(newMenuNumber, newMealType, newMealName, newMealDescription, newIngredientList, newPrice);
 
+            _repo.AddMenuItemToDatabase(newMenuItem);
+
+            _console.PressAnyKeyToContinue();
         }
+
+        public void ListAllMenuItems()
+        {
+            List<Menu> allMenuItems = _repo.GetAllMenuItems();
+
+            _console.PrintAllMenuItems(allMenuItems);
+
+            _console.PressAnyKeyToContinue();
+        }
+        public void ExitApp()
+        {
+            _console.Exit();
+            _console.PressAnyKeyToContinue();
+        }
+
+        // CRUD ^^^^^
+        // HELPERS vvvvv
+
+
+        private MealType? MealTypeSelection(string userMealTypeInput)
+        {
+            switch(userMealTypeInput)
+            {
+                case "1":
+                    return MealType.Breakfast;
+                case "2":
+                    return MealType.Lunch;
+                default:
+                    return null;
+            }
+        }
+        //
     }
 }
