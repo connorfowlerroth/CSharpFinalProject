@@ -9,6 +9,11 @@ namespace ChallengeOne.ConsoleApp
     {
         // SINGLE RESPONSIBILITY 
         // Methods that print things in the console.
-        
+        public void PrintMainMenu()
+        {
+            Console.WriteLine("1. Create New Menu Item.\n" +
+                                "2. Delete Menu Item.\n" +
+                                    "3. List all Menu Items");
+        }
     }
 }
