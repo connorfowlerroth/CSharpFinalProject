@@ -33,7 +33,7 @@ namespace ChallengeOne.ConsoleApp
                     CreateNewMenuItem();
                     break;
                 case "2":
-                    //DeleteMenuItem();
+                    DeleteMenuItem();
                     break;
                 case "3":
                     ListAllMenuItems();
