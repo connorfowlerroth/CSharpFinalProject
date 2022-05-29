@@ -76,8 +76,14 @@ namespace ChallengeTwo.ConsoleApp
 
         public void PrintClaims(Claims claimList)
         {
-            Console.WriteLine("ClaimId       TypeDescription       Amount       DateOfIncident       DateOfClaim       IsValid \n\n" +
-                            $"{claimList.ClaimID}" + $"{claimList.ClaimType}" + $"{claimList.Description}" + $"{claimList.ClaimAmount}" + $"{claimList.DateOfIncident}" + $"{claimList.DateOfClaim}" + $"{claimList.IsValid}\n\n");
+            Console.WriteLine("ClaimId       Type               Description               Amount       DateOfIncident          DateOfClaim          IsValid \n\n" +
+                            $"   {claimList.ClaimID}          "+$"{claimList.ClaimType}          "    +    $"{claimList.Description}        "    +    $"{claimList.ClaimAmount}         "    +    $"{claimList.DateOfIncident}               "    +    $"{claimList.DateOfClaim}             "    +    $"{claimList.IsValid}\n\n");
+
+        }
+        public void PrintClaimsByID(Claims claimIDList)
+        {
+            Console.WriteLine(
+            $"ClaimID: {claimIDList.ClaimID}\n\n" + $"Type: {claimIDList.ClaimType}\n\n" + $"Description: {claimIDList.Description}\n\n" + $"Amount: {claimIDList.ClaimAmount}\n\n" + $"DateOfAccident: {claimIDList.DateOfIncident}\n\n" + $"DateOfClaim: {claimIDList.DateOfClaim}\n\n" + $"IsValid: {claimIDList.IsValid}\n\n");
 
         }
         public void PrintAllClaims(List<Claims> claimList)
@@ -87,6 +93,14 @@ namespace ChallengeTwo.ConsoleApp
                 PrintClaims(x);
             }
         }
+        public void PrintClaimsByID(List<Claims> claimIDList)
+        {
+            foreach(Claims x in claimIDList)
+            {
+                PrintClaimsByID(x);
+            }
+        }
+
         public void Exit()
         {
             Console.Clear();

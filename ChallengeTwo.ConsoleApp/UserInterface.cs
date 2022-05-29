@@ -30,13 +30,13 @@ namespace ChallengeTwo.ConsoleApp
             switch (inputFromUser)
             {
                 case "1":
-                    // SeeAllClaims();
+                    SeeAllClaims();
                     break;
                 case "2":
                     // TakeCareOfNextClaim();
                     break;
                 case "3":
-                    // CreateNewClaim();
+                    CreateNewClaim();
                     break;
                 case "4":
                     // ExitApp();
@@ -49,7 +49,7 @@ namespace ChallengeTwo.ConsoleApp
 
         private void CreateNewClaim()
         {
-            // Console.Clear();
+            Console.Clear();
             _console.EnterClaimID();
             int newClaimID = _console.GetUserInputInt();
 
@@ -81,16 +81,21 @@ namespace ChallengeTwo.ConsoleApp
             _console.PressAnyKeyToContinue();
         }
 
-        public void ListAllClaims()
+        public void TakeCareOfNextClaim()
+        {
+
+        }
+        public void SeeAllClaims()
         {
             List<Claims> allClaims = _repo.GetAllClaims();
 
+            Console.Clear();
             _console.PrintAllClaims(allClaims);
-
             _console.PressAnyKeyToContinue();
         }
         public void ExitApp()
         {
+            Console.Clear();
             _console.Exit();
             _console.PressAnyKeyToContinue();
         }
